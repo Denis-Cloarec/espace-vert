@@ -1303,21 +1303,11 @@ textarea.contact-field {
   }
 
   .hero-points {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    max-width: none;
-    margin-top: 0.85rem;
-    gap: 0.45rem;
-  }
-
-  .hero .point-pill {
-    padding: 0.48rem 0.4rem;
-    font-size: 0.76rem;
-    line-height: 1.2;
+    display: none;
   }
 
   .hero-actions {
-    margin-top: 0.9rem;
+    margin-top: 0.75rem;
   }
 
   .point-pill,
