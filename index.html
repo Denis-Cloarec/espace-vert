@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="light" />
     <title>Denis Cloarec | Entretien de jardin à Morlaix et alentours</title>
     <meta
       name="description"
@@ -19,12 +20,9 @@
       property="og:description"
       content="Service local, sérieux et soigné pour l'entretien de jardin à Morlaix, Saint-Pol-de-Léon, Roscoff, Carantec, Plouigneau et Plougasnou."
     />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
-      rel="stylesheet"
-    />
+    <script>
+      document.documentElement.classList.add("js-enhanced");
+    </script>
     <link rel="stylesheet" href="styles.css" />
     <script type="application/ld+json">
       {
@@ -183,9 +181,39 @@
 
     <main id="main-content">
       <section class="hero section-shell" id="accueil">
+        <div class="hero-media-wrap" aria-hidden="true">
+          <picture class="hero-media-picture">
+            <source
+              srcset="./hero-garden-960.avif 960w, ./hero-garden-1920.avif 1920w"
+              sizes="100vw"
+              type="image/avif"
+            />
+            <source
+              srcset="./hero-garden-960.webp 960w, ./hero-garden-1920.webp 1920w"
+              sizes="100vw"
+              type="image/webp"
+            />
+            <source
+              srcset="./hero-garden-960.jpg 960w, ./hero-garden-1920.jpg 1920w"
+              sizes="100vw"
+              type="image/jpeg"
+            />
+            <img
+              class="hero-media"
+              src="./hero-garden-1920.jpg"
+              srcset="./hero-garden-960.jpg 960w, ./hero-garden-1920.jpg 1920w"
+              sizes="100vw"
+              width="1920"
+              height="675"
+              alt=""
+              fetchpriority="high"
+              decoding="async"
+            />
+          </picture>
+        </div>
         <div class="hero-backdrop" aria-hidden="true"></div>
         <div class="container hero-grid">
-          <div class="hero-copy" data-reveal>
+          <div class="hero-copy">
             <span class="eyebrow">
               <svg class="icon" aria-hidden="true">
                 <use href="#icon-leaf"></use>
@@ -223,7 +251,7 @@
 
           </div>
 
-          <div class="hero-visual" data-reveal>
+          <div class="hero-visual">
             <div class="hero-card surface-card">
               <span class="status-chip">Disponible sur devis</span>
 
@@ -427,15 +455,42 @@
 
       <section class="section-shell" id="a-propos">
         <div class="container about-grid">
-          <div class="surface-card portrait-card" data-reveal>
-            <div class="portrait-frame">
-              <span class="portrait-badge">Photo à ajouter</span>
-              <div class="portrait-placeholder">
-                <span class="portrait-initials">DC</span>
-                <p>Un portrait réel renforcera encore la confiance locale.</p>
-              </div>
-            </div>
-          </div>
+          <figure class="surface-card about-visual-card" data-reveal>
+            <picture class="about-photo-picture">
+              <source
+                srcset="./hero-garden-960.avif 960w, ./hero-garden-1920.avif 1920w"
+                sizes="(max-width: 64rem) 100vw, 32rem"
+                type="image/avif"
+              />
+              <source
+                srcset="./hero-garden-960.webp 960w, ./hero-garden-1920.webp 1920w"
+                sizes="(max-width: 64rem) 100vw, 32rem"
+                type="image/webp"
+              />
+              <source
+                srcset="./hero-garden-960.jpg 960w, ./hero-garden-1920.jpg 1920w"
+                sizes="(max-width: 64rem) 100vw, 32rem"
+                type="image/jpeg"
+              />
+              <img
+                class="about-photo"
+                src="./hero-garden-960.jpg"
+                srcset="./hero-garden-960.jpg 960w, ./hero-garden-1920.jpg 1920w"
+                sizes="(max-width: 64rem) 100vw, 32rem"
+                width="960"
+                height="675"
+                alt="Extérieur entretenu et verdoyant dans le secteur de Morlaix."
+                loading="lazy"
+                decoding="async"
+              />
+            </picture>
+
+            <figcaption class="about-photo-caption">
+              <span class="media-badge">Intervention locale</span>
+              <strong>Des extérieurs nets, entretenus avec régularité</strong>
+              <p>Une présence de proximité pour garder vos espaces verts propres, lisibles et accueillants.</p>
+            </figcaption>
+          </figure>
 
           <div class="about-copy" data-reveal>
             <span class="eyebrow">À propos</span>
@@ -519,70 +574,154 @@
         <div class="container">
           <div class="section-heading" data-reveal>
             <span class="eyebrow">Réalisations</span>
-            <h2 class="section-title">Avant / Après – Mes interventions</h2>
+            <h2 class="section-title">Exemples d’interventions</h2>
             <p class="section-intro">
-              Ajoutez des photos réelles dès que possible : c’est l’un des meilleurs leviers de
-              confiance pour convertir localement.
+              Quelques mises en situation visuelles pour montrer le type de rendu propre et soigné
+              recherché sur chaque intervention.
             </p>
           </div>
 
           <div class="projects-grid">
             <article class="surface-card project-card" data-reveal>
-              <div class="before-after-frame" aria-label="Emplacement photo avant et après">
-                <div class="photo-slot">
-                  <span class="slot-label">Avant</span>
-                  <span class="slot-copy">Photo à ajouter</span>
-                </div>
-                <div class="photo-slot">
-                  <span class="slot-label">Après</span>
-                  <span class="slot-copy">Photo à ajouter</span>
-                </div>
-              </div>
+              <figure class="project-visual">
+                <picture class="project-picture">
+                  <source
+                    srcset="./hero-garden-960.avif 960w, ./hero-garden-1920.avif 1920w"
+                    sizes="(max-width: 40rem) 100vw, 36rem"
+                    type="image/avif"
+                  />
+                  <source
+                    srcset="./hero-garden-960.webp 960w, ./hero-garden-1920.webp 1920w"
+                    sizes="(max-width: 40rem) 100vw, 36rem"
+                    type="image/webp"
+                  />
+                  <source
+                    srcset="./hero-garden-960.jpg 960w, ./hero-garden-1920.jpg 1920w"
+                    sizes="(max-width: 40rem) 100vw, 36rem"
+                    type="image/jpeg"
+                  />
+                  <img
+                    class="project-media project-media-haie"
+                    src="./hero-garden-960.jpg"
+                    srcset="./hero-garden-960.jpg 960w, ./hero-garden-1920.jpg 1920w"
+                    sizes="(max-width: 40rem) 100vw, 36rem"
+                    width="960"
+                    height="675"
+                    alt="Haies et massifs entretenus pour garder une structure propre autour de la maison."
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </picture>
+                <span class="media-badge project-badge">Taille & structure</span>
+              </figure>
               <h3>Taille de haie complète</h3>
               <p>Remise en forme nette et homogène pour retrouver un extérieur plus soigné.</p>
             </article>
 
             <article class="surface-card project-card" data-reveal>
-              <div class="before-after-frame" aria-label="Emplacement photo avant et après">
-                <div class="photo-slot">
-                  <span class="slot-label">Avant</span>
-                  <span class="slot-copy">Photo à ajouter</span>
-                </div>
-                <div class="photo-slot">
-                  <span class="slot-label">Après</span>
-                  <span class="slot-copy">Photo à ajouter</span>
-                </div>
-              </div>
+              <figure class="project-visual">
+                <picture class="project-picture">
+                  <source
+                    srcset="./hero-garden-960.avif 960w, ./hero-garden-1920.avif 1920w"
+                    sizes="(max-width: 40rem) 100vw, 36rem"
+                    type="image/avif"
+                  />
+                  <source
+                    srcset="./hero-garden-960.webp 960w, ./hero-garden-1920.webp 1920w"
+                    sizes="(max-width: 40rem) 100vw, 36rem"
+                    type="image/webp"
+                  />
+                  <source
+                    srcset="./hero-garden-960.jpg 960w, ./hero-garden-1920.jpg 1920w"
+                    sizes="(max-width: 40rem) 100vw, 36rem"
+                    type="image/jpeg"
+                  />
+                  <img
+                    class="project-media project-media-remise"
+                    src="./hero-garden-960.jpg"
+                    srcset="./hero-garden-960.jpg 960w, ./hero-garden-1920.jpg 1920w"
+                    sizes="(max-width: 40rem) 100vw, 36rem"
+                    width="960"
+                    height="675"
+                    alt="Jardin remis en état avec un rendu clair et agréable à vivre."
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </picture>
+                <span class="media-badge project-badge">Remise en état</span>
+              </figure>
               <h3>Jardin remis en état</h3>
               <p>Un passage complet pour redonner de la clarté et de la tenue aux extérieurs.</p>
             </article>
 
             <article class="surface-card project-card" data-reveal>
-              <div class="before-after-frame" aria-label="Emplacement photo avant et après">
-                <div class="photo-slot">
-                  <span class="slot-label">Avant</span>
-                  <span class="slot-copy">Photo à ajouter</span>
-                </div>
-                <div class="photo-slot">
-                  <span class="slot-label">Après</span>
-                  <span class="slot-copy">Photo à ajouter</span>
-                </div>
-              </div>
+              <figure class="project-visual">
+                <picture class="project-picture">
+                  <source
+                    srcset="./hero-garden-960.avif 960w, ./hero-garden-1920.avif 1920w"
+                    sizes="(max-width: 40rem) 100vw, 36rem"
+                    type="image/avif"
+                  />
+                  <source
+                    srcset="./hero-garden-960.webp 960w, ./hero-garden-1920.webp 1920w"
+                    sizes="(max-width: 40rem) 100vw, 36rem"
+                    type="image/webp"
+                  />
+                  <source
+                    srcset="./hero-garden-960.jpg 960w, ./hero-garden-1920.jpg 1920w"
+                    sizes="(max-width: 40rem) 100vw, 36rem"
+                    type="image/jpeg"
+                  />
+                  <img
+                    class="project-media project-media-nettoyage"
+                    src="./hero-garden-960.jpg"
+                    srcset="./hero-garden-960.jpg 960w, ./hero-garden-1920.jpg 1920w"
+                    sizes="(max-width: 40rem) 100vw, 36rem"
+                    width="960"
+                    height="675"
+                    alt="Allées et bordures extérieures nettoyées pour une maison plus accueillante."
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </picture>
+                <span class="media-badge project-badge">Nettoyage extérieur</span>
+              </figure>
               <h3>Nettoyage extérieur</h3>
               <p>Allées, bordures et zones de passage remises au propre rapidement.</p>
             </article>
 
             <article class="surface-card project-card" data-reveal>
-              <div class="before-after-frame" aria-label="Emplacement photo avant et après">
-                <div class="photo-slot">
-                  <span class="slot-label">Avant</span>
-                  <span class="slot-copy">Photo à ajouter</span>
-                </div>
-                <div class="photo-slot">
-                  <span class="slot-label">Après</span>
-                  <span class="slot-copy">Photo à ajouter</span>
-                </div>
-              </div>
+              <figure class="project-visual">
+                <picture class="project-picture">
+                  <source
+                    srcset="./hero-garden-960.avif 960w, ./hero-garden-1920.avif 1920w"
+                    sizes="(max-width: 40rem) 100vw, 36rem"
+                    type="image/avif"
+                  />
+                  <source
+                    srcset="./hero-garden-960.webp 960w, ./hero-garden-1920.webp 1920w"
+                    sizes="(max-width: 40rem) 100vw, 36rem"
+                    type="image/webp"
+                  />
+                  <source
+                    srcset="./hero-garden-960.jpg 960w, ./hero-garden-1920.jpg 1920w"
+                    sizes="(max-width: 40rem) 100vw, 36rem"
+                    type="image/jpeg"
+                  />
+                  <img
+                    class="project-media project-media-regular"
+                    src="./hero-garden-960.jpg"
+                    srcset="./hero-garden-960.jpg 960w, ./hero-garden-1920.jpg 1920w"
+                    sizes="(max-width: 40rem) 100vw, 36rem"
+                    width="960"
+                    height="675"
+                    alt="Entretien régulier d’un jardin pour conserver un extérieur propre tout au long de l’année."
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </picture>
+                <span class="media-badge project-badge">Entretien régulier</span>
+              </figure>
               <h3>Entretien régulier</h3>
               <p>Une présence suivie pour conserver un jardin propre et accueillant toute l’année.</p>
             </article>

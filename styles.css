@@ -38,9 +38,8 @@
   --gradient-soft: linear-gradient(135deg, var(--primitive-indigo-50), rgb(var(--rgb-white) / 0.98));
   --gradient-panel: linear-gradient(180deg, rgb(var(--rgb-white) / 0.97), rgb(244 246 239 / 0.93));
   --gradient-cta: linear-gradient(135deg, var(--primitive-indigo-900), #315240 54%, var(--primitive-indigo-950));
-  --hero-photo-url: url("./Finistere-jardin-a-decouvrir.jpg");
 
-  --font-family-base: "Plus Jakarta Sans", sans-serif;
+  --font-family-base: "Aptos", "Segoe UI Variable Text", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
   --font-size-lead: clamp(1.05rem, 1rem + 0.25vw, 1.2rem);
   --font-size-h1: clamp(2.55rem, 4.6vw, 4.45rem);
   --font-size-h2: clamp(2rem, 3vw, 3rem);
@@ -69,6 +68,7 @@
   --input-border: rgb(var(--rgb-slate-900) / 0.08);
   --input-focus: rgb(var(--rgb-indigo-600) / 0.16);
   --nav-link-color: var(--color-text-soft);
+  color-scheme: light;
 }
 
 *,
@@ -87,6 +87,7 @@ body {
   overflow-x: hidden;
   overflow-x: clip;
   font-family: var(--font-family-base);
+  text-rendering: optimizeLegibility;
   color: var(--color-text);
   line-height: var(--line-height-body);
   background:
@@ -141,6 +142,7 @@ button {
   z-index: -1;
   overflow: hidden;
   pointer-events: none;
+  contain: layout paint style;
 }
 
 .blob-bg {
@@ -149,9 +151,9 @@ button {
   width: 30rem;
   height: 30rem;
   border-radius: 50%;
-  filter: blur(80px);
-  opacity: 0.14;
-  animation: blobFloat 12s ease-in-out infinite;
+  filter: blur(64px);
+  opacity: 0.11;
+  animation: blobFloat 16s ease-in-out infinite;
 }
 
 .blob-bg-one {
@@ -190,6 +192,18 @@ button {
 .section-shell {
   position: relative;
   padding-block: clamp(3.2rem, 5vw, 4.75rem);
+}
+
+.services-grid,
+.projects-grid,
+.town-grid,
+.about-highlights,
+.trust-panel,
+.about-visual-card,
+.contact-form-wrap,
+.legal-panel {
+  content-visibility: auto;
+  contain-intrinsic-size: 1px 540px;
 }
 
 section[id] {
@@ -232,8 +246,10 @@ section[id] {
   padding-block: 0.4rem;
 }
 
-.site-header.is-scrolled {
-  backdrop-filter: blur(20px);
+.site-header.is-scrolled .header-inner {
+  border-color: rgb(var(--rgb-white) / 0.18);
+  background: linear-gradient(180deg, rgb(24 40 30 / 0.96), rgb(33 50 39 / 0.94));
+  box-shadow: 0 18px 30px -24px rgb(var(--rgb-slate-900) / 0.28);
 }
 
 .header-inner {
@@ -454,9 +470,8 @@ section[id] {
 
 .hero .eyebrow {
   border-color: rgb(var(--rgb-white) / 0.12);
-  background: rgb(var(--rgb-white) / 0.1);
+  background: rgb(var(--rgb-white) / 0.14);
   color: rgb(var(--rgb-white) / 0.94);
-  backdrop-filter: blur(8px);
 }
 
 .hero-grid,
@@ -485,6 +500,24 @@ section[id] {
   background: linear-gradient(180deg, #23362a, #314a39 45%, #4a6845 100%);
 }
 
+.hero-media-wrap,
+.hero-media-picture {
+  position: absolute;
+  inset: 0;
+}
+
+.hero-media-wrap {
+  z-index: -2;
+  overflow: hidden;
+}
+
+.hero-media {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 54%;
+}
+
 .hero-backdrop,
 .hero-backdrop::before,
 .hero-backdrop::after {
@@ -495,13 +528,10 @@ section[id] {
 .hero-backdrop {
   z-index: -1;
   background:
-    linear-gradient(90deg, rgb(14 24 17 / 0.38) 0%, rgb(14 24 17 / 0.24) 32%, rgb(14 24 17 / 0.14) 60%, rgb(14 24 17 / 0.18) 100%),
-    radial-gradient(circle at 16% 24%, rgb(32 56 36 / 0.12), transparent 21%),
-    linear-gradient(180deg, rgb(16 27 19 / 0.08), rgb(16 27 19 / 0.12)),
-    var(--hero-photo-url);
-  background-position: center, center, center, center 54%;
-  background-repeat: no-repeat;
-  background-size: auto, auto, auto, cover;
+    linear-gradient(90deg, rgb(14 24 17 / 0.48) 0%, rgb(14 24 17 / 0.3) 34%, rgb(14 24 17 / 0.18) 60%, rgb(14 24 17 / 0.22) 100%),
+    radial-gradient(circle at 16% 24%, rgb(32 56 36 / 0.18), transparent 21%),
+    linear-gradient(180deg, rgb(16 27 19 / 0.08), rgb(16 27 19 / 0.22));
+  pointer-events: none;
 }
 
 .hero-backdrop::before,
@@ -520,8 +550,7 @@ section[id] {
       transparent 1px,
       transparent 12px
     );
-  mix-blend-mode: soft-light;
-  opacity: 0.16;
+  opacity: 0.1;
 }
 
 .hero-backdrop::after {
@@ -619,12 +648,11 @@ section[id] {
 
 .hero .point-pill {
   border-color: rgb(var(--rgb-white) / 0.12);
-  background: rgb(var(--rgb-white) / 0.12);
+  background: rgb(var(--rgb-white) / 0.16);
   color: rgb(var(--rgb-white) / 0.94);
   padding: 0.56rem 0.78rem;
   font-size: 0.83rem;
   box-shadow: none;
-  backdrop-filter: blur(5px);
 }
 
 .hero .btn-secondary {
@@ -648,7 +676,6 @@ section[id] {
 
 .hero-visual {
   position: relative;
-  perspective: 1600px;
   align-self: center;
   justify-self: end;
   width: min(100%, 32rem);
@@ -664,11 +691,9 @@ section[id] {
 .hero-card {
   width: min(100%, 32rem);
   padding: 0.92rem;
-  background: linear-gradient(180deg, rgb(249 250 245 / 0.9), rgb(238 242 233 / 0.84));
+  background: linear-gradient(180deg, rgb(249 250 245 / 0.92), rgb(238 242 233 / 0.9));
   border-color: rgb(var(--rgb-white) / 0.2);
-  box-shadow: 0 16px 32px -28px rgb(8 19 12 / 0.22);
-  transform: rotateX(0.55deg) rotateY(-1.1deg);
-  transform-style: preserve-3d;
+  box-shadow: 0 20px 38px -30px rgb(8 19 12 / 0.24);
 }
 
 .status-chip {
@@ -719,7 +744,6 @@ section[id] {
 .about-highlight strong,
 .contact-card strong,
 .field-group span,
-.slot-label,
 .town-card strong {
   color: var(--color-text);
 }
@@ -825,7 +849,7 @@ section[id] {
 .about-highlight,
 .metric-card,
 .contact-card,
-.portrait-card {
+.about-visual-card {
   transition:
     transform 200ms ease,
     box-shadow 200ms ease,
@@ -835,7 +859,7 @@ section[id] {
 .service-card,
 .project-card,
 .about-highlight,
-.portrait-card,
+.about-visual-card,
 .contact-form-wrap,
 .trust-panel,
 .cta-panel {
@@ -846,7 +870,7 @@ section[id] {
 .service-card:focus-within,
 .project-card:hover,
 .about-highlight:hover,
-.portrait-card:hover,
+.about-visual-card:hover,
 .contact-card:hover,
 .town-card:hover {
   transform: translateY(-4px);
@@ -913,53 +937,59 @@ section[id] {
   grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
 }
 
-.portrait-card {
-  background: var(--gradient-soft);
+.about-visual-card {
+  margin: 0;
+  display: grid;
+  gap: 0;
+  overflow: hidden;
+  padding: 0;
+  background: linear-gradient(180deg, rgb(249 250 245 / 0.98), rgb(238 242 233 / 0.92));
 }
 
-.portrait-frame {
-  position: relative;
-  padding: 1rem;
-  border-radius: calc(var(--radius-card) - 0.1rem);
-  background: rgb(249 250 245 / 0.74);
+.about-photo-picture,
+.project-picture {
+  display: block;
 }
 
-.portrait-badge {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
+.about-photo,
+.project-media {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.about-photo {
+  aspect-ratio: 5 / 6;
+  object-position: 34% 50%;
+}
+
+.about-photo-caption {
+  display: grid;
+  gap: 0.55rem;
+  padding: 1.15rem 1.2rem 1.25rem;
+}
+
+.about-photo-caption strong {
+  font-size: 1.08rem;
+  line-height: 1.35;
+}
+
+.about-photo-caption p {
+  margin: 0;
+  color: var(--color-text-muted);
+}
+
+.media-badge {
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
   padding: 0.45rem 0.75rem;
   border-radius: var(--radius-pill);
-  background: rgb(var(--rgb-white) / 0.9);
+  background: rgb(var(--rgb-white) / 0.92);
   color: var(--color-primary);
   font-size: 0.78rem;
   font-weight: 700;
-}
-
-.portrait-placeholder {
-  display: grid;
-  place-items: center;
-  min-height: 22rem;
-  padding: 2rem;
-  text-align: center;
-  border: 1px dashed rgb(var(--rgb-indigo-600) / 0.18);
-  border-radius: calc(var(--radius-card) - 0.25rem);
-  background: linear-gradient(180deg, rgb(var(--rgb-indigo-600) / 0.08), rgb(var(--rgb-emerald-500) / 0.09), rgb(var(--rgb-white) / 0.92));
-}
-
-.portrait-initials {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 5.5rem;
-  height: 5.5rem;
-  margin-bottom: 1rem;
-  border-radius: 50%;
-  background: var(--gradient-brand);
-  color: var(--primitive-white);
-  font-size: 1.9rem;
-  font-weight: 800;
-  box-shadow: 0 16px 34px -20px rgb(var(--rgb-indigo-600) / 0.24);
+  box-shadow: 0 12px 24px -22px rgb(var(--rgb-slate-900) / 0.3);
 }
 
 .about-highlights {
@@ -980,29 +1010,52 @@ section[id] {
   color: var(--color-primary);
 }
 
-.before-after-frame {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 0.9rem;
-}
-
-.photo-slot {
-  display: grid;
-  align-content: space-between;
-  min-height: 12rem;
-  padding: 1rem;
-  border: 1px dashed rgb(var(--rgb-slate-900) / 0.09);
+.project-visual {
+  position: relative;
+  margin: 0;
+  overflow: hidden;
   border-radius: calc(var(--radius-card) - 0.25rem);
-  background: linear-gradient(180deg, rgb(var(--rgb-slate-900) / 0.02), rgb(var(--rgb-emerald-500) / 0.08));
 }
 
-.slot-label {
-  font-size: 0.85rem;
-  font-weight: 700;
+.project-visual::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 0%, rgb(17 27 20 / 0.08) 100%);
+  pointer-events: none;
 }
 
-.slot-copy {
-  color: var(--color-text-muted);
+.project-media {
+  aspect-ratio: 16 / 10;
+  transition: transform 220ms ease;
+}
+
+.project-card:hover .project-media,
+.project-card:focus-within .project-media {
+  transform: scale(1.04);
+}
+
+.project-media-haie {
+  object-position: 22% 52%;
+}
+
+.project-media-remise {
+  object-position: 40% 48%;
+}
+
+.project-media-nettoyage {
+  object-position: 58% 52%;
+}
+
+.project-media-regular {
+  object-position: 76% 50%;
+}
+
+.project-badge {
+  position: absolute;
+  top: 0.95rem;
+  left: 0.95rem;
+  z-index: 1;
 }
 
 .cta-section {
@@ -1158,15 +1211,15 @@ textarea.contact-field {
   font-size: 0.92rem;
 }
 
-[data-reveal] {
+.js-enhanced [data-reveal] {
   opacity: 0;
-  transform: translateY(24px);
+  transform: translateY(18px);
   transition:
-    opacity 500ms ease,
-    transform 500ms ease;
+    opacity 420ms ease,
+    transform 420ms ease;
 }
 
-[data-reveal].is-visible {
+.js-enhanced [data-reveal].is-visible {
   opacity: 1;
   transform: translateY(0);
 }
@@ -1255,6 +1308,10 @@ textarea.contact-field {
     align-items: stretch;
   }
 
+  .site-background {
+    display: none;
+  }
+
   .nav-links-group,
   .nav-actions {
     width: 100%;
@@ -1293,8 +1350,7 @@ textarea.contact-field {
   .town-grid,
   .projects-grid,
   .trust-metrics,
-  .about-highlights,
-  .before-after-frame {
+  .about-highlights {
     grid-template-columns: 1fr;
   }
 
@@ -1343,7 +1399,7 @@ textarea.contact-field {
     transition-delay: 0ms !important;
   }
 
-  [data-reveal] {
+  .js-enhanced [data-reveal] {
     opacity: 1;
     transform: none;
   }

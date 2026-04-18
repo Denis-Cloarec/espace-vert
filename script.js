@@ -6,18 +6,26 @@ const revealItems = document.querySelectorAll("[data-reveal]");
 const contactForm = document.querySelector("#contact-form");
 const feedback = document.querySelector("#form-feedback");
 const currentYear = document.querySelector("#current-year");
+let headerStateQueued = false;
 
 if (currentYear) {
   currentYear.textContent = new Date().getFullYear();
 }
 
 const setHeaderState = () => {
+  headerStateQueued = false;
   if (!header) return;
   header.classList.toggle("is-scrolled", window.scrollY > 12);
 };
 
+const requestHeaderState = () => {
+  if (headerStateQueued) return;
+  headerStateQueued = true;
+  window.requestAnimationFrame(setHeaderState);
+};
+
 setHeaderState();
-window.addEventListener("scroll", setHeaderState, { passive: true });
+window.addEventListener("scroll", requestHeaderState, { passive: true });
 
 if (menuToggle && navigation) {
   menuToggle.addEventListener("click", () => {
@@ -33,7 +41,7 @@ if (menuToggle && navigation) {
   });
 }
 
-if ("IntersectionObserver" in window) {
+if (revealItems.length > 0 && "IntersectionObserver" in window) {
   const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
@@ -44,11 +52,19 @@ if ("IntersectionObserver" in window) {
       });
     },
     {
-      threshold: 0.18
+      rootMargin: "0px 0px -10% 0px",
+      threshold: 0.12
     }
   );
 
-  revealItems.forEach((item) => observer.observe(item));
+  revealItems.forEach((item) => {
+    if (item.getBoundingClientRect().top <= window.innerHeight * 0.9) {
+      item.classList.add("is-visible");
+      return;
+    }
+
+    observer.observe(item);
+  });
 } else {
   revealItems.forEach((item) => item.classList.add("is-visible"));
 }
